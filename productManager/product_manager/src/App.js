@@ -1,11 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
-import Main from './views/Main'
+import AllProducts from "./components/AllProducts"
+import ProductForm from "./components/ProductForm"
+import ProductDetail from "./components/ProductDetail"
+import Main from "./views/Main"
+import {Router, Link} from '@reach/router'
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <h1>Welcome to Products!</h1>
+      <p><Link to="/products/new">Create New Product</Link></p>
+
+      <p><Link to="/">Home</Link></p>
+      <Router>
+        <AllProducts path="/"/>
+        <ProductForm path="/products/new"/>
+        <ProductDetail path="/products/:id"/>
+      </Router>
     </div>
   );
 }
